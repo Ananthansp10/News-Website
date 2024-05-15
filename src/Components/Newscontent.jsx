@@ -13,7 +13,7 @@ function Newscontent({category,country}) {
     let fetchnews=useCallback(()=>{
         let url = `https://newsapi.org/v2/top-headlines?country=${displaycountry}&category=${displaycategory}&pageSize=${pagesize}&apiKey=${apikey}`
 
-        fetch(url).then(response => response.json()).then(data => setnews(data.articles))
+        fetch(url).then(response => response.json()).then(data => setnews(data.articles)).catch(error=>console.log(error))
         console.log(news.length)
      },[apikey,news,displaycategory,displaycountry,pagesize])
 
