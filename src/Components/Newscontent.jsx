@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import image from '../assets/newsimage.jpg'
 
 function Newscontent({category,country}) {
-    const apikey = process.env.REACT_APP_KEY
+    const apikey = process.env.REACT_APP_SECREAT_KEY
     const [news, setnews] = useState([])
     let displaycountry=country
     let displaycategory=category
@@ -12,6 +12,7 @@ function Newscontent({category,country}) {
 
     let fetchnews=useCallback(()=>{
         let url = `https://newsapi.org/v2/top-headlines?country=${displaycountry}&category=${displaycategory}&pageSize=${pagesize}&apiKey=${apikey}`
+
         fetch(url).then(response => response.json()).then(data => setnews(data.articles))
         console.log(news.length)
      },[apikey,news,displaycategory,displaycountry,pagesize])
