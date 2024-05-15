@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import image from '../assets/newsimage.jpg'
 
 function Newscontent({category,country}) {
-    const apikey = process.env.REACT_APP_ACCESS_KEY
+    const apikey = process.env.REACT_APP_KEY
     const [news, setnews] = useState([])
     let displaycountry=country
     let displaycategory=category
